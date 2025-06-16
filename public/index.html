@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Splitwise Backend Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Split-it</h1>
+
+  <section>
+    <h2>Add New Expense</h2>
+    <form id="expenseForm">
+      <input type="text" name="description" placeholder="Description" required />
+      <input type="number" name="amount" placeholder="Amount" required />
+      <input type="text" name="paid_by" placeholder="Paid by Owner" required />
+      <input type="text" name="participants" placeholder="Participants p1,p2..." required />
+      <select name="split_type">
+        <option value="equal">Equal</option>
+        <option value="exact">Exact</option>
+        <option value="percentage">Percentage</option>
+      </select>
+      <textarea name="splits" placeholder='Splits (e.g. [{"person":"Sanket","value":50}])'></textarea>
+      <input type="text" name="category" placeholder="Category (Food, Travel, etc.)" />
+      <button type="submit">Add Expense</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>All Expenses</h2>
+    <pre id="expensesOutput"></pre>
+  </section>
+
+  <section>
+    <h2>Balances</h2>
+    <pre id="balancesOutput"></pre>
+  </section>
+
+  <section>
+    <h2>Settlements</h2>
+    <pre id="settlementsOutput"></pre>
+  </section>
+
+  <button onclick="loadAll()">Refresh?</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

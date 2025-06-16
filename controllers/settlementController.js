@@ -7,13 +7,34 @@ exports.getBalances = async (req, res) => {
     const balances = {};
 
     for (const exp of expenses) {
-      const splitAmount = exp.amount / exp.participants.length;
+      const { amount, paid_by, participants, split_type, splits } = exp;
 
-      exp.participants.forEach(p => {
-        balances[p] = (balances[p] || 0) - splitAmount;
-      });
+      if (split_type === 'equal') {
+        const share = amount / participants.length;
+        participants.forEach(p => {
+          balances[p] = (balances[p] || 0) - share;
+        });
+      }
 
-      balances[exp.paid_by] = (balances[exp.paid_by] || 0) + exp.amount;
+      else if (split_type === 'exact') {
+        splits.forEach(({ person, value }) => {
+          balances[person] = (balances[person] || 0) - value;
+        });
+      }
+
+      else if (split_type === 'percentage') {
+        splits.forEach(({ person, value }) => {
+          const share = (value / 100) * amount;
+          balances[person] = (balances[person] || 0) - share;
+        });
+      }
+
+      balances[paid_by] = (balances[paid_by] || 0) + amount;
+    }
+
+    // Optional: Round balances to 2 decimals
+    for (let p in balances) {
+      balances[p] = Number(balances[p].toFixed(2));
     }
 
     res.status(200).json({ success: true, data: balances });

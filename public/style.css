@@ -1,0 +1,25 @@
+body {
+  font-family: sans-serif;
+  padding: 2rem;
+  background: #f9f9f9;
+}
+form > * {
+  display: block;
+  margin: 0.5rem 0;
+}
+button {
+  padding: 0.5rem;
+  font-weight: bold;
+}
+section {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: whitesmoke;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+pre {
+  background: #eee;
+  padding: 1rem;
+  overflow-x: auto;
+}
