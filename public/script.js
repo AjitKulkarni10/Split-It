@@ -1,4 +1,4 @@
-require("dotenv").config();
+// require("dotenv").config();
 const BASE_URL = "http://localhost:3000"; // Replace with deployed URL
 
 document.getElementById("expenseForm").addEventListener("submit", async (e) => {
