@@ -15,9 +15,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 const expenseRoutes = require("./routes/expenses");
 const settlementRoutes = require("./routes/settlements");
 
-app.get("/", (req, res) => {
-  res.send("✅ Expense Splitter API is running!");
+// Fallback route: serve index.html on any unknown GET request
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
+
 app.use("/expenses", expenseRoutes);
 app.use("/", settlementRoutes); // Add more as you go
 
