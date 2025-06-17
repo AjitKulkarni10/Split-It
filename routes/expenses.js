@@ -6,7 +6,7 @@ const { addExpense , getAllExpenses , updateExpense , deleteExpense } = require(
 
 router.post("/", addExpense);
 router.get("/", getAllExpenses);
-router.put("/", updateExpense);
+router.put("/:id", updateExpense);
 router.delete("/:id", deleteExpense);
 
 module.exports = router;
