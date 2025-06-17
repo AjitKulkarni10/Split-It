@@ -38,11 +38,11 @@ split-app/
 │   ├── index.html
 │   ├── script.js
 │   └── style.css
-├── controllers/         # Business logic for routes
+├── controllers/         # logic for routes
 ├── models/              # Mongoose schemas
 ├── routes/              # API route handlers
 ├── utils/               # Settlement and recurring logic
-├── .env                 # Environment variables (ignored in Git)
+├── .env                 
 ├── package.json
 └── server.js
 ```
@@ -53,8 +53,11 @@ split-app/
 
 ### 1. Clone the repository
 git clone https://github.com/your-username/split-app.git
+
 cd split-app
+
 npm i
+
 npm run dev
 
 before that add all the dev variables into .env file with containing PORT and MONGO_URL
