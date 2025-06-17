@@ -4,6 +4,7 @@ const BASE_URL = "https://split-it-sxjw.onrender.com"; // Replace with deployed 
 document.getElementById("expenseForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const form = e.target;
+  console.log("Form intercepted");
 
   const body = {
     description: form.description.value,
