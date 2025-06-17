@@ -2,7 +2,10 @@
 
 A full-stack backend app to split group expenses with support for equal, exact, and percentage-based splits. Built using **Node.js**, **Express**, and **MongoDB**, with a simple HTML frontend.
 
-Deployed at 👉 [https://split-it-sxjw.onrender.com](https://split-it-sxjw.onrender.com)
+Deployed at 
+[https://split-it-sxjw.onrender.com](https://split-it-sxjw.onrender.com)
+
+
 [https://split-it-two.vercel.app/](https://split-it-two.vercel.app/)
 ---
 
@@ -27,19 +30,24 @@ Deployed at 👉 [https://split-it-sxjw.onrender.com](https://split-it-sxjw.onre
 
 ---
 
-## Git Repository Structure
+##  Git Repository Structure
+
+```
 split-app/
-├── public/ # Frontend HTML + JS
-│ ├── index.html
-│ ├── script.js
-│ └── style.css
-├── controllers/ #  routes
-├── models/ # Mongoose schemas
-├── routes/ # API route handlers
-├── utils/ # Settlement and recurring logic
-├── .env 
+├── public/              # Frontend HTML + JS
+│   ├── index.html
+│   ├── script.js
+│   └── style.css
+├── controllers/         # Business logic for routes
+├── models/              # Mongoose schemas
+├── routes/              # API route handlers
+├── utils/               # Settlement and recurring logic
+├── .env                 # Environment variables (ignored in Git)
 ├── package.json
 └── server.js
+```
+
+---
 
 ## Setup Information
 
@@ -52,20 +60,34 @@ npm run dev
 before that add all the dev variables into .env file with containing PORT and MONGO_URL
 
 
-API Endpoints:
-| Method | Endpoint        | Description       |
-| ------ | --------------- | ----------------- |
-| POST   | `/expenses`     | Add a new expense |
-| GET    | `/expenses`     | Get all expenses  |
-| PUT    | `/expenses/:id` | Update an expense |
-| DELETE | `/expenses/:id` | Delete an expense |
-| ------ | --------------- | ----------------- |
-| POST   | `/expenses`     | Add a new expense |
-| GET    | `/expenses`     | Get all expenses  |
-| PUT    | `/expenses/:id` | Update an expense |
-| DELETE | `/expenses/:id` | Delete an expense |
-| ------ | ----------------| ------------------|
-| POST   | `/recurring/run`| recurring expenses|
+## API Endpoints
+
+### Expenses
+
+| Method | Endpoint             | Description         |
+|--------|----------------------|---------------------|
+| POST   | `/expenses`          | Add a new expense   |
+| GET    | `/expenses`          | Get all expenses    |
+| PUT    | `/expenses/:id`      | Update an expense   |
+| DELETE | `/expenses/:id`      | Delete an expense   |
+
+### Analytics & Balances
+
+| Method | Endpoint                      | Description               |
+|--------|-------------------------------|---------------------------|
+| GET    | `/balances`                   | Net balance per person    |
+| GET    | `/settlements`                | Simplified settlements    |
+| GET    | `/people`                     | All unique participants   |
+| GET    | `/summary/categories`         | Category-wise totals      |
+| GET    | `/summary/monthly`            | Monthly spending summary  |
+| GET    | `/summary/spenders`           | Top spenders              |
+| GET    | `/summary/top-categories`     | Top categories spent      |
+
+### Recurring
+
+| Method | Endpoint           | Description                     |
+|--------|--------------------|---------------------------------|
+| POST   | `/recurring/run`   | Process recurring expenses      |
 
 
 gist file for all endpoints :
